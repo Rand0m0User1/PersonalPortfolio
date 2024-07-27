@@ -42,7 +42,7 @@ const Navbar = () => {
   if (!themeLoaded) return null
 
   return (
-    <header className={`w-full mx-auto px-4 fixed top-0 z-50 ${resolvedTheme === "dark" ? "bg-stone-900 dark:border-b dark:border-stone-600" : "bg-white shadow"}`}>
+    <header className={`w-full mx-auto px-4 fixed top-0 z-50 sm:px-20 ${resolvedTheme === "dark" ? "bg-stone-900 dark:border-b dark:border-stone-600" : "bg-white shadow"}`}>
       <div className="justify-between md:items-center md:flex">
         <div>
           <div className="flex justify-between items-center py-3">
@@ -50,18 +50,29 @@ const Navbar = () => {
               <h2 className="text-2xl font-bold">Aleksander Kurgan</h2>
             </div>
             <div className="md:hidden">
-              <button className="p-2">
+              <button onClick={() => setNavbar(!navbar)} className="p-2">
                 {navbar ? <IoMdClose size={30}/> : <IoMdMenu size={30} />}
               </button>
             </div>
           </div>
         </div>
         <div className={`flex justify-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
-          <div className="items-center justify-center md:flex md:space-x-6">
+          <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             {NAV_ITEMS.map((item, idx) => {
-              return <a key={idx}>{item.label}</a>  
+              return (
+                <Link
+                  key={idx}
+                  to={item.page}
+                  className={`block lg:inline-block cursor-pointer ${resolvedTheme === "dark" ? "text-neutral-100 hover:text-neutral-500" : "text-neutral-900 hover:text-neutral-500"}`}
+                  activeClass="active"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onClick={() => setNavbar(!navbar)}>{item.label}
+                </Link>
+              )
             })}
-            
             {resolvedTheme === "dark" ? (
               <button
                 onClick={() => setTheme("light")}
