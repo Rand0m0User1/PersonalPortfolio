@@ -24,7 +24,7 @@ const projects = [
       name: "This Website",
       description:
         "All about me :)",
-      image: "",
+      image: "/portfolio.png",
       github: "https://github.com/Rand0m0User1/PersonalPortfolio",
       link: "",
     },
@@ -41,7 +41,9 @@ const ProjectsSection = () => {
                 return <div key={idx}>
                     <div className="flex flex-col md:flex-row md:space-x-12">
                         <div className="mt-5 md:w-1/2">
-                            <Image src={project.image} alt="" width={1000} height={1000} className="rounded-xl shadow-xl hover:opacity-70"/>
+                            <Link href={project.link} target="_blank">
+                                <Image src={project.image} alt="" width={1000} height={1000} className="rounded-xl shadow-xl hover:opacity-70"/>
+                            </Link>
                         </div>
                         <div className="mt-5 md:w-1/2">
                             <h1 className="text-4xl font-bold mb-6">{project.name}</h1>

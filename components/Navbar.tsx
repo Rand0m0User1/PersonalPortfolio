@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import { RiMoonFill, RiSunLine } from "react-icons/ri"
 import { IoMdMenu, IoMdClose } from "react-icons/io"
-import { isLabeledStatement } from "typescript"
 import React, { useEffect, useState } from "react"
+import Image from 'next/image'
 
 interface NavItem {
   label: string
@@ -24,6 +24,10 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Projects",
     page: "projects",
+  },
+  {
+    label: "Education",
+    page: "education",
   },
   {
     label: "Résumé",
@@ -47,7 +51,9 @@ const Navbar = () => {
         <div>
           <div className="flex justify-between items-center py-3">
             <div className="md:py-5 md:block">
-              <h2 className="text-2xl font-bold">Aleksander Kurgan</h2>
+              <Link to="home" spy={true} smooth={true} offset={-100} duration={500}>
+                <Image src="/logo.png" alt="logo" width={90} height={90} />
+              </Link>
             </div>
             <div className="md:hidden">
               <button onClick={() => setNavbar(!navbar)} className="p-2">
@@ -58,7 +64,21 @@ const Navbar = () => {
         </div>
         <div className={`flex justify-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
           <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-            {NAV_ITEMS.map((item, idx) => {
+          {NAV_ITEMS.map((item, idx) => {
+            if (item.label === "Résumé") {
+              return (
+                <a
+                  key={idx}
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block lg:inline-block cursor-pointer ${resolvedTheme === "dark" ? "text-neutral-100 hover:text-neutral-500" : "text-neutral-900 hover:text-neutral-500"}`}
+                  onClick={() => setNavbar(!navbar)}
+                >
+                  {item.label}
+                </a>
+              )
+            } else {
               return (
                 <Link
                   key={idx}
@@ -69,25 +89,13 @@ const Navbar = () => {
                   smooth={true}
                   offset={-100}
                   duration={500}
-                  onClick={() => setNavbar(!navbar)}>{item.label}
+                  onClick={() => setNavbar(!navbar)}
+                >
+                  {item.label}
                 </Link>
               )
-            })}
-            {resolvedTheme === "dark" ? (
-              <button
-                onClick={() => setTheme("light")}
-                className="bg-slate-100 p-2 rounded-xl"
-              >
-                <RiSunLine size={25} color="black" />
-              </button>
-            ) : (
-              <button
-                onClick={() => setTheme("dark")}
-                className="bg-slate-100 p-2 rounded-xl"
-              >
-                <RiMoonFill size={25} />
-              </button>
-            )}
+            }
+          })}
           </div>
         </div>
       </div>
