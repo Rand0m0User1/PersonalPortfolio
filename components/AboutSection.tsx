@@ -1,4 +1,3 @@
-"use client"
 import React from 'react'
 import Image from 'next/image'
 
@@ -18,24 +17,24 @@ const skills = [
     { skill: "Big Band", img: "/bigband.png" },
     { skill: "Jazz Improvisation", img: "/trombone.svg" },
     { skill: "Agile Methodologies (SCRUM)", img: "/scrum.png" },
-  ]
+]
 
-  const AboutSection = () => {
+const AboutSection = () => {
     return (
         <section id="about">
             <div className="my-12 pb-12 md:pt-16 md:pb-48">
                 <h1 className="text-center font-bold text-4xl py-8">About Me
                     <hr className="w-6 h-1 mx-auto my-4 bg-amber-200 border-0 rounded"></hr>
                 </h1>
-                <div className="flex flex-col space-y-5 items-stretch justify-center align-top md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-10">
+                <div className="flex flex-col space-y-5 items-center justify-center md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-20 md:items-start">
                     <div className="text-center md:text-left md:w-1/2">
                         <p>FillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFiller</p>
                         <br />
                         <p>FillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFiller</p>
                     </div>
-                    <div className="md:w-1/2 flex justify-center md:justify-start">
-                        <div className="relative w-60 h-60 md:w-80 md:h-80">
-                            <Image className="rounded-lg object-cover" src="/headshot.png" alt="Headshot" layout="fill" />
+                    <div className="md:w-1/2 flex justify-center">
+                        <div className="relative w-80 h-80 md:w-100 md:h-100">
+                            <Image className="rounded-lg object-cover mx-auto" src="/aboutmephoto.jpg" alt="aboutmephoto" fill />
                         </div>
                     </div>
                 </div>
@@ -46,9 +45,9 @@ const skills = [
                             return (
                                 <div key={idx} className="w-40 h-40 flex flex-col items-center justify-center bg-gray-200 p-4 rounded-lg shadow-lg border-4 border-amber-500 hover:bg-gray-300">
                                     <div className="w-16 h-16 relative mb-2">
-                                        <Image src={item.img} alt={item.skill} layout="fill" objectFit="contain" />
+                                        <Image src={item.img} alt={item.skill} fill objectFit="contain" />
                                     </div>
-                                    <p className="text-gray-500 font-semibold text-center">{item.skill}</p>
+                                    <p className="text-black font-semibold text-center">{item.skill}</p>
                                 </div>
                             )
                         })}
