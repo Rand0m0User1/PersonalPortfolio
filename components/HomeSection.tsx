@@ -5,14 +5,36 @@ import { Link } from 'react-scroll'
 import { HiArrowDown } from "react-icons/hi"
 import { BsGithub } from "react-icons/bs"
 import { FaLinkedin } from "react-icons/fa";
+import Typewriter from 'typewriter-effect';
 
 const Home = () => {
   return (
     <section id="home">
       <div className="flex flex-col-reverse text-center items-center justify-center my-12 py-16 sm:py-30 md:flex-row md:space-x-5 md:text-left md:py-60">
         <div className="md:mt-2 md:w-3/5 md:ml-20">
-          <h1 className="font-bold text-4xl mt-6 md:text-7xl md:mt-0">Hi, I&#39;m Aleks!</h1>
-          <p className="text-lg mt-4 mb-6 md:text-2xl">a student at the Center for Information Technology</p>
+          <h1 className="font-bold text-6xl mt-6 md:text-10xl md:mt-0">Hi, I&#39;m Aleks!</h1>
+          <div className="text-4xl mt-4 mb-6 md:text-4xl">
+            <span>a </span>
+            <span style={{ display: 'inline-block' }}>
+              <Typewriter
+                options={{
+                  strings: [
+                    "student at the CIT", 
+                    "musician",
+                    "CAD designer",
+                    "programmer",
+                    "developer",
+                    "quick learner",
+                    "developer",
+                    "competitor",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  delay: 75,
+                }}
+              />
+            </span>
+          </div>
           <div className="flex flex-row items-center justify-center md:justify-start space-x-4">
             <a href="https://github.com/Rand0m0User1" target="_blank" rel="noopener noreferrer">
               <BsGithub

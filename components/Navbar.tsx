@@ -52,7 +52,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center py-3">
             <div className="md:py-5 md:block">
               <Link to="home" spy={true} smooth={true} offset={-100} duration={500}>
-                <Image src="/logo.png" alt="logo" width={90} height={90} />
+                <Image className="cursor-pointer" src="/logo.png" alt="logo" width={90} height={90} />
               </Link>
             </div>
             <div className="md:hidden">
