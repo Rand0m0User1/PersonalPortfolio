@@ -25,7 +25,7 @@ const Footer = () => {
             resolvedTheme === "dark" ? "text-neutral-100" : "text-neutral-950"
           }`}
         >
-          Built with ❤️ Aleksander Kurgan
+          Built with by ❤️ Aleksander Kurgan
         </div>
         <div className="flex flex-row items-center justify-center space-x-2 mb-1">
           <a href="" rel="noreferrer" target="_blank">

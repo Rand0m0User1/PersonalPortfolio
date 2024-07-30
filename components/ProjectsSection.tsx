@@ -1,8 +1,13 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
+
+import { Canvas } from "@react-three/fiber";
+import { Environment, OrbitControls } from "@react-three/drei";
+import Climb from "../public/Climb";
+import  from "../public/";
 
 const projects = [
   {
@@ -28,6 +33,16 @@ const projects = [
     github: "https://github.com/Rand0m0User1/PersonalPortfolio",
     link: "",
   },
+  {
+    name: "Climb 3D Model",
+    description: "A 3D model of a climbing scenario.",
+    component: Climb,
+  },
+  {
+    name: "",
+    description: "",
+    component: ,
+  },
 ];
 
 const ProjectsSection = () => {
@@ -38,11 +53,23 @@ const ProjectsSection = () => {
         <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded"></hr>
       </h1>
       <div className="flex flex-col space-y-28">
-        {projects.map((project, idx) => {
-          return (
-            <div key={idx} className="flex flex-col items-start">
-              {" "}
-              {/* Changed alignment */}
+        {projects.map((project, idx) => (
+          <div key={idx} className="flex flex-col items-start">
+            {project.component ? (
+              <div className="w-full flex justify-center bg-white rounded-lg mt-5">
+                <Canvas
+                  style={{ width: "80%", height: "500px" }}
+                  camera={{ position: [8, 8, -5], fov: 50 }}
+                >
+                  <ambientLight />
+                  <OrbitControls enableZoom={false} />
+                  <Suspense fallback={null}>
+                    <project.component scale={[8, 8, 8]} />
+                  </Suspense>
+                  <Environment preset="sunset" />
+                </Canvas>
+              </div>
+            ) : (
               <div className="mt-5">
                 <Link href={project.link} target="_blank">
                   <Image
@@ -54,31 +81,31 @@ const ProjectsSection = () => {
                   />
                 </Link>
               </div>
-              <div className="mt-5">
-                <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
-                <p className="text-xl leading-7 mb-4">{project.description}</p>
-                <div className="flex flex-row align-bottom space-x-4">
-                  {project.github && (
-                    <Link href={project.github} target="_blank">
-                      <BsGithub
-                        size={30}
-                        className="hover:-translate-y-1 transition-transform cursor-pointer"
-                      />
-                    </Link>
-                  )}
-                  {project.link && (
-                    <Link href={project.link} target="_blank">
-                      <BsArrowUpRightSquare
-                        size={30}
-                        className="hover:-translate-y-1 transition-transform cursor-pointer"
-                      />
-                    </Link>
-                  )}
-                </div>
+            )}
+            <div className="mt-5">
+              <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
+              <p className="text-xl leading-7 mb-4">{project.description}</p>
+              <div className="flex flex-row align-bottom space-x-4">
+                {project.github && (
+                  <Link href={project.github} target="_blank">
+                    <BsGithub
+                      size={30}
+                      className="hover:-translate-y-1 transition-transform cursor-pointer"
+                    />
+                  </Link>
+                )}
+                {project.link && (
+                  <Link href={project.link} target="_blank">
+                    <BsArrowUpRightSquare
+                      size={30}
+                      className="hover:-translate-y-1 transition-transform cursor-pointer"
+                    />
+                  </Link>
+                )}
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </section>
   );
