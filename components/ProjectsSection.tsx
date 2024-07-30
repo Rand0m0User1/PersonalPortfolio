@@ -5,9 +5,7 @@ import Link from "next/link";
 import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
 
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
-import Climb from "../public/Climb";
-import  from "../public/";
+import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
 
 const projects = [
   {
@@ -23,7 +21,6 @@ const projects = [
     description:
       "Contributor to the development of the set of applications that connected with the Edulog transportation logistics platform, enabling HCPS students to scan their smartphones to verify boarding and disembarkation from the school bus.",
     image: "/bustransportation.jpeg",
-    github: "",
     link: "https://docs.google.com/presentation/d/1JiWFtx2hWTuxL83uG-Ihb7gq1PctHwVsQyWkKM5nl40/edit?usp=sharing",
   },
   {
@@ -31,21 +28,33 @@ const projects = [
     description: "All about me :)",
     image: "/portfolio.png",
     github: "https://github.com/Rand0m0User1/PersonalPortfolio",
-    link: "",
   },
   {
-    name: "Climb 3D Model",
-    description: "A 3D model of a climbing scenario.",
-    component: Climb,
+    name: "2024 Climbing Mechanism",
+    description:
+      "Proposed compact climbing mechanism for 2024 FIRST Robotics Competition robot.",
+    glbPath: "/chainclimb.glb",
+    link: "https://cad.onshape.com/documents/22633d46d8241ca56701bcb0/w/7c9de08487f4f9c947e2a444/e/c7a4c4971d8186e864267b90?renderMode=0&uiState=66a971a6a3b64564ae9ad013",
   },
   {
-    name: "",
-    description: "",
-    component: ,
+    name: "Double Joined Arm",
+    description:
+      "Double-jointed arm with a variable wrist, tailored for the 2023 First Robotics Competition game, Charged Up. It’s versatile, though it does present a bit of a challenge for programmers. 😉",
+    glbPath: "/djarm.glb",
+    link: "https://cad.onshape.com/documents/8253e250247f832b06e3a35f/w/221930e2d4075dcf935fcfe5/e/7d2bf5cdca04897dcaade0e5?renderMode=0&uiState=66a9713817ca25772f74f1e4",
   },
 ];
 
-const ProjectsSection = () => {
+interface ModelProps {
+  path: string;
+}
+
+const Model: React.FC<ModelProps> = ({ path }) => {
+  const { scene } = useGLTF(path) as any;
+  return <primitive object={scene} scale={[8, 8, 8]} />;
+};
+
+const ProjectsSection: React.FC = () => {
   return (
     <section id="projects">
       <h1 className="text-center font-bold text-4xl py-8">
@@ -55,7 +64,7 @@ const ProjectsSection = () => {
       <div className="flex flex-col space-y-28">
         {projects.map((project, idx) => (
           <div key={idx} className="flex flex-col items-start">
-            {project.component ? (
+            {project.glbPath ? (
               <div className="w-full flex justify-center bg-white rounded-lg mt-5">
                 <Canvas
                   style={{ width: "80%", height: "500px" }}
@@ -64,17 +73,17 @@ const ProjectsSection = () => {
                   <ambientLight />
                   <OrbitControls enableZoom={false} />
                   <Suspense fallback={null}>
-                    <project.component scale={[8, 8, 8]} />
+                    <Model path={project.glbPath} />
                   </Suspense>
                   <Environment preset="sunset" />
                 </Canvas>
               </div>
             ) : (
               <div className="mt-5">
-                <Link href={project.link} target="_blank">
+                <Link href={project.link || "#"} target="_blank">
                   <Image
-                    src={project.image}
-                    alt=""
+                    src={project.image || ""}
+                    alt={project.name}
                     width={1000}
                     height={1000}
                     className="border-4 border-amber-400 rounded-xl shadow-xl hover:opacity-70"
