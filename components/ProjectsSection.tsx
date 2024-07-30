@@ -38,34 +38,32 @@ const ProjectsSection = () => {
         </h1>
         <div className="flex flex-col space-y-28">
             {projects.map((project, idx) => {
-                return <div key={idx}>
-                    <div className="flex flex-col md:flex-row md:space-x-12">
-                        <div className="mt-5 md:w-1/2">
-                            <Link href={project.link} target="_blank">
-                                <Image src={project.image} alt="" width={1000} height={1000} className="rounded-xl shadow-xl hover:opacity-70"/>
-                            </Link>
-                        </div>
-                        <div className="mt-5 md:w-1/2">
-                            <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
-                            <p className="text-xl leading-7 mb-4">{project.description}</p>
-                            <div className="flex flex-row align-bottom space-x-4">
-                                {project.github && (
-                                    <Link href={project.github} target="_blank">
-                                    <BsGithub
+                return <div key={idx} className="flex flex-col items-start"> {/* Changed alignment */}
+                    <div className="mt-5">
+                        <Link href={project.link} target="_blank">
+                            <Image src={project.image} alt="" width={1000} height={1000} className="border-4 border-amber-400 rounded-xl shadow-xl hover:opacity-70"/>
+                        </Link>
+                    </div>
+                    <div className="mt-5">
+                        <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
+                        <p className="text-xl leading-7 mb-4">{project.description}</p>
+                        <div className="flex flex-row align-bottom space-x-4">
+                            {project.github && (
+                                <Link href={project.github} target="_blank">
+                                <BsGithub
+                                    size={30}
+                                    className="hover:-translate-y-1 transition-transform cursor-pointer"
+                                />
+                                </Link>
+                            )}
+                            {project.link && (
+                                <Link href={project.link} target="_blank">
+                                    <BsArrowUpRightSquare
                                         size={30}
                                         className="hover:-translate-y-1 transition-transform cursor-pointer"
                                     />
-                                    </Link>
-                                )}
-                                {project.link && (
-                                    <Link href={project.link} target="_blank">
-                                        <BsArrowUpRightSquare
-                                            size={30}
-                                            className="hover:-translate-y-1 transition-transform cursor-pointer"
-                                        />
-                                    </Link>
-                                )}
-                            </div>
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div>

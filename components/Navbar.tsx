@@ -13,26 +13,11 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Home",
-    page: "home",
-  },
-  {
-    label: "About",
-    page: "about",
-  },
-  {
-    label: "Projects",
-    page: "projects",
-  },
-  {
-    label: "Education",
-    page: "education",
-  },
-  {
-    label: "Résumé",
-    page: "resume",
-  },
+  { label: "Home", page: "home" },
+  { label: "About", page: "about" },
+  { label: "Projects", page: "projects" },
+  { label: "Education", page: "education" },
+  { label: "Résumé", page: "resume" },
 ]
 
 const Navbar = () => {
@@ -62,11 +47,10 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className={`flex justify-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
-          <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-          {NAV_ITEMS.map((item, idx) => {
-            if (item.label === "Résumé") {
-              return (
+        <div className={`transition-all duration-300 ease-in-out transform ${navbar ? "max-h-screen opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-full"} overflow-hidden md:flex md:max-h-full md:opacity-100 md:translate-y-0`}>
+          <div className="flex flex-col pb-4 items-center space-y-7 md:flex-row md:space-x-6 md:space-y-0">
+            {NAV_ITEMS.map((item, idx) => (
+              item.label === "Résumé" ? (
                 <a
                   key={idx}
                   href="/resume.pdf"
@@ -77,9 +61,7 @@ const Navbar = () => {
                 >
                   {item.label}
                 </a>
-              )
-            } else {
-              return (
+              ) : (
                 <Link
                   key={idx}
                   to={item.page}
@@ -94,23 +76,22 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               )
-            }
-          })}
-          {resolvedTheme === "dark" ? (
-                <button
-                  onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="black" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} />
-                </button>
-              )}
+            ))}
+            {resolvedTheme === "dark" ? (
+              <button
+                onClick={() => setTheme("light")}
+                className="bg-slate-100 p-2 rounded-xl"
+              >
+                <RiSunLine size={25} color="black" />
+              </button>
+            ) : (
+              <button
+                onClick={() => setTheme("dark")}
+                className="bg-slate-100 p-2 rounded-xl"
+              >
+                <RiMoonFill size={25} />
+              </button>
+            )}
           </div>
         </div>
       </div>
