@@ -34,7 +34,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
         <h1 className="text-center font-bold text-4xl py-8">Projects
-            <hr className="w-6 h-1 mx-auto my-4 bg-amber-200 border-0 rounded"></hr>
+            <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded"></hr>
         </h1>
         <div className="flex flex-col space-y-28">
             {projects.map((project, idx) => {

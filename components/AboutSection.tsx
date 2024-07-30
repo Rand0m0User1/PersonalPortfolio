@@ -24,7 +24,7 @@ const AboutSection = () => {
         <section id="about">
             <div className="my-12 pb-12 md:pt-16 md:pb-48">
                 <h1 className="text-center font-bold text-4xl py-8">About Me
-                    <hr className="w-6 h-1 mx-auto my-4 bg-amber-200 border-0 rounded" />
+                    <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded" />
                 </h1>
                 <div className="flex flex-col space-y-5 items-center justify-center md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-20 md:items-start">
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-2xl whitespace-normal break-words text-center md:text-left md:w-1/2 max-w-full p-4">
