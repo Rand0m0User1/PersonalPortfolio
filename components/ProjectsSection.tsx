@@ -21,13 +21,20 @@ const projects = [
     description:
       "Contributor to the development of the set of applications that connected with the Edulog transportation logistics platform, enabling HCPS students to scan their smartphones to verify boarding and disembarkation from the school bus.",
     image: "/bustransportation.jpeg",
-    link: "https://docs.google.com/presentation/d/1JiWFtx2hWTuxL83uG-Ihb7gq1PctHwVsQyWkKM5nl40/edit?usp=sharing",
+    link: "https://docs.google.com/presentation/d/1ZvLDIaKy_XhhAAJHN5zTUyqJCVizXZf3AlVmyxWWkZk/edit?usp=sharing",
   },
   {
     name: "This Website",
-    description: "All about me :)",
+    description: "All about me.",
     image: "/portfolio.png",
     github: "https://github.com/Rand0m0User1/PersonalPortfolio",
+  },
+  {
+    name: "Hockey Robot",
+    description:
+      "The robot is designed for a casual re-run of the F4 CADathon competition. It features an intake that passively centers the pucks, an indexer, and a high-power, variable-angle shooter.",
+    glbPath: "puckrobot.glb",
+    link: "https://cad.onshape.com/documents/aea32739f3009eb4a0fed1a5/w/cb6f4f03cdabbd21cc2bba95/e/9fd5c7e17a5c8e016f5b7045",
   },
   {
     name: "2024 Climbing Mechanism",
@@ -37,11 +44,25 @@ const projects = [
     link: "https://cad.onshape.com/documents/22633d46d8241ca56701bcb0/w/7c9de08487f4f9c947e2a444/e/c7a4c4971d8186e864267b90?renderMode=0&uiState=66a971a6a3b64564ae9ad013",
   },
   {
-    name: "Double Joined Arm",
+    name: "Double Jointed Arm",
     description:
-      "Double-jointed arm with a variable wrist, tailored for the 2023 First Robotics Competition game, Charged Up. It’s versatile, though it does present a bit of a challenge for programmers. 😉",
+      "Double-jointed arm with a variable wrist, tailored for the 2023 First Robotics Competition game, Charged Up. It's versatile, though it does present a bit of a challenge for programmers. 😉",
     glbPath: "/djarm.glb",
     link: "https://cad.onshape.com/documents/8253e250247f832b06e3a35f/w/221930e2d4075dcf935fcfe5/e/7d2bf5cdca04897dcaade0e5?renderMode=0&uiState=66a9713817ca25772f74f1e4",
+  },
+  {
+    name: "Slapdown Intake",
+    description:
+      "Intake designed to avoid the use of a four-bar linkage, thereby simplifying the design and deployment process. It is intended to pick up plastic balls filled halfway with water",
+    glbPath: "/slapdownintake.glb",
+    link: "https://cad.onshape.com/documents/495f76657db70918ebca4f43/w/f636e2ac2cf051fd77c257f8/e/5fa5b776284f7976fe523b02?renderMode=0&uiState=66a975b0b819f171bcd57e8e",
+  },
+  {
+    name: "Four Bar Linkage Intake",
+    description:
+      "Intake utilizing a four-bar linkage to optimize space constraints. The compact design allows it to be stowed neatly and supports a compact deployment mechanism. It is intended to pick up 7-inch foam balls from the 2021 FIRST Robotics Competition game, Infinite Recharge.",
+    glbPath: "/fourbarintake.glb",
+    link: "https://cad.onshape.com/documents/c48936fccef1fb811cf717e2/w/a91025fc85fa0d82564d9e3b/e/16730cc9ec5c5772a3776724",
   },
 ];
 
@@ -65,13 +86,13 @@ const ProjectsSection: React.FC = () => {
         {projects.map((project, idx) => (
           <div key={idx} className="flex flex-col items-start">
             {project.glbPath ? (
-              <div className="w-full flex justify-center bg-white rounded-lg mt-5">
+              <div className="w-full flex justify-center bg-white rounded-lg mt-5 hover:cursor-all-scroll">
                 <Canvas
                   style={{ width: "80%", height: "500px" }}
                   camera={{ position: [8, 8, -5], fov: 50 }}
                 >
                   <ambientLight />
-                  <OrbitControls enableZoom={false} />
+                  <OrbitControls enableZoom={true} />
                   <Suspense fallback={null}>
                     <Model path={project.glbPath} />
                   </Suspense>
@@ -86,6 +107,7 @@ const ProjectsSection: React.FC = () => {
                     alt={project.name}
                     width={1000}
                     height={1000}
+                    unoptimized
                     className="border-4 border-amber-400 rounded-xl shadow-xl hover:opacity-70"
                   />
                 </Link>

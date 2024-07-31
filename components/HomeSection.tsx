@@ -17,7 +17,10 @@ const Home = () => {
           </h1>
           <div className="text-4xl mt-4 mb-6 md:text-4xl">
             <span>a </span>
-            <span style={{ display: "inline-block" }}>
+            <span
+              className="font-bold text-amber-400"
+              style={{ display: "inline-block" }}
+            >
               <Typewriter
                 options={{
                   strings: [
@@ -60,11 +63,11 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <div className="md:w-1/2 md:mt-2">
+        <div className="md:w-1/2 md:mt-2 flex justify-center">
           <Image
-            className="rounded-full"
+            className="rounded-full shadow-xl ring-4 ring-white"
             src="/headshot.png"
-            alt=""
+            alt="Aleks Headshot"
             width={300}
             height={300}
             unoptimized
@@ -72,7 +75,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-row items-center text-center justify-center">
+      <div className="flex flex-row items-center text-center justify-center mt-8">
         <Link
           to="about"
           activeClass="active"
@@ -81,7 +84,7 @@ const Home = () => {
           offset={-100}
           duration={500}
         >
-          <HiArrowDown size={35} className="animate-bounce" />
+          <HiArrowDown size={35} className="animate-bounce text-amber-400" />
         </Link>
       </div>
     </section>

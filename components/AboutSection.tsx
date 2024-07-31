@@ -30,27 +30,49 @@ const AboutSection = () => {
         <div className="flex flex-col space-y-5 items-center justify-center md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-20 md:items-start">
           <div className="text-lg sm:text-lg md:text-xl lg:text-xl whitespace-normal break-words text-center md:text-left md:w-1/2 max-w-full p-4">
             <p>
-              Hi! Im Aleksander, a 16 year old junior enrolled in the Center for
-              Information Technology at Deep Run High School in Glen Allen, VA.
-              As a Polish-Canadian, I am generally curious and have many
-              interests, but I am the most passionate about technology, music,
-              and engineering.
+              Hi! I&#39;m Aleksander, a 16 year old junior enrolled in the{" "}
+              <span className="font-bold text-amber-400">
+                Center for Information Technology
+              </span>{" "}
+              at Deep Run High School in Glen Allen, VA I am generally curious
+              and have many interests, but I am the most passionate about{" "}
+              <span className="font-bold text-amber-400">technology</span>,{" "}
+              <span className="font-bold text-amber-400">music</span>, and{" "}
+              <span className="font-bold text-amber-400">engineering</span>.
             </p>
             <br />
             <p>
-              FillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFiller
+              In programming, I engage in{" "}
+              <span className="font-bold text-amber-400">web development</span>,{" "}
+              <span className="font-bold text-amber-400">UI development</span>,
+              and <span className="font-bold text-amber-400">data science</span>
+              , among other projects. My passion for technology is furthered
+              with my fascination for engineering as I use{" "}
+              <span className="font-bold text-amber-400">Onshape</span>, a{" "}
+              <span className="font-bold text-amber-400">
+                cloud-based CAD software
+              </span>
+              , to develop complex mechanisms that ultimately culminate in full
+              robots. Additionally, I have experience in{" "}
+              <span className="font-bold text-amber-400">Fusion 360 CAM</span>,
+              taking designs from the 3D drawing board to{" "}
+              <span className="font-bold text-amber-400">
+                CNC manufacturing
+              </span>
+              .
             </p>
             <br />
             <p>
-              FillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFiller
-            </p>
-            <br />
-            <p>
-              FillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFiller
-            </p>
-            <br />
-            <p>
-              FillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFillerFiller
+              Outside of technology and engineering, I am also an{" "}
+              <span className="font-bold text-amber-400">
+                all-state solo performing musician
+              </span>
+              . From a young age, I have played jazz trombone in an acclaimed{" "}
+              <span className="font-bold text-amber-400">
+                pre-college program
+              </span>{" "}
+              and classical euphonium, taking lessons from{" "}
+              <span className="font-bold text-amber-400">Dr. Ross Walter</span>.
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
