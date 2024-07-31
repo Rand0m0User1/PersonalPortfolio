@@ -1,11 +1,11 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
-
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
+import { useInView } from "react-intersection-observer";
 
 const projects = [
   {
@@ -33,7 +33,7 @@ const projects = [
     name: "Hockey Robot",
     description:
       "The robot is designed for a casual re-run of the F4 CADathon competition. It features an intake that passively centers the pucks, an indexer, and a high-power, variable-angle shooter.",
-    glbPath: "puckrobot.glb",
+    glbPath: "puckrobot1.glb",
     link: "https://cad.onshape.com/documents/aea32739f3009eb4a0fed1a5/w/cb6f4f03cdabbd21cc2bba95/e/9fd5c7e17a5c8e016f5b7045",
   },
   {
@@ -75,6 +75,40 @@ const Model: React.FC<ModelProps> = ({ path }) => {
   return <primitive object={scene} scale={[8, 8, 8]} />;
 };
 
+const LazyModel: React.FC<{ path: string }> = ({ path }) => {
+  const { ref, inView } = useInView({ threshold: 0.1 });
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  }, [inView]);
+
+  return (
+    <div
+      ref={ref}
+      className="w-full flex justify-center bg-white rounded-lg mt-5 hover:cursor-all-scroll"
+    >
+      {visible && (
+        <Canvas
+          style={{ width: "80%", height: "500px" }}
+          camera={{ position: [8, 8, -5], fov: 50 }}
+        >
+          <ambientLight />
+          <OrbitControls enableZoom={true} />
+          <Suspense fallback={null}>
+            <Model path={path} />
+          </Suspense>
+          <Environment preset="sunset" />
+        </Canvas>
+      )}
+    </div>
+  );
+};
+
 const ProjectsSection: React.FC = () => {
   return (
     <section id="projects">
@@ -86,19 +120,7 @@ const ProjectsSection: React.FC = () => {
         {projects.map((project, idx) => (
           <div key={idx} className="flex flex-col items-start">
             {project.glbPath ? (
-              <div className="w-full flex justify-center bg-white rounded-lg mt-5 hover:cursor-all-scroll">
-                <Canvas
-                  style={{ width: "80%", height: "500px" }}
-                  camera={{ position: [8, 8, -5], fov: 50 }}
-                >
-                  <ambientLight />
-                  <OrbitControls enableZoom={true} />
-                  <Suspense fallback={null}>
-                    <Model path={project.glbPath} />
-                  </Suspense>
-                  <Environment preset="sunset" />
-                </Canvas>
-              </div>
+              <LazyModel path={project.glbPath} />
             ) : (
               <div className="mt-5">
                 <Link href={project.link || "#"} target="_blank">
