@@ -28,7 +28,11 @@ const Footer = () => {
           Built with by ❤️ Aleksander Kurgan
         </div>
         <div className="flex flex-row items-center justify-center space-x-2 mb-1">
-          <a href="" rel="noreferrer" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/aleksander-kurgan/"
+            rel="noreferrer"
+            target="_blank"
+          >
             <AiOutlineGithub
               className={`hover:-translate-y-1 transition-transform cursor-pointer ${
                 resolvedTheme === "dark"
@@ -38,7 +42,11 @@ const Footer = () => {
               size={30}
             />
           </a>
-          <a href="" rel="noreferrer" target="_blank">
+          <a
+            href="https://github.com/Rand0m0User1"
+            rel="noreferrer"
+            target="_blank"
+          >
             <AiOutlineLinkedin
               className={`hover:-translate-y-1 transition-transform cursor-pointer ${
                 resolvedTheme === "dark"

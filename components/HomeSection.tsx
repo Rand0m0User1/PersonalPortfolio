@@ -52,7 +52,7 @@ const Home = () => {
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/aleksander-kurgan-300171292/"
+              href="https://www.linkedin.com/in/aleksander-kurgan/"
               target="_blank"
               rel="noopener noreferrer"
             >
