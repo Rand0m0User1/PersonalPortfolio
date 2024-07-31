@@ -3,12 +3,17 @@ import Image from "next/image";
 
 const skills = [
   { skill: "Python", img: "/python.svg" },
+  { skill: "Java", img: "/java.svg" },
   { skill: "HTML", img: "/html.svg" },
   { skill: "CSS", img: "/css.svg" },
   { skill: "Javascript", img: "/js.svg" },
   { skill: "Next.js", img: "/next.svg" },
   { skill: "Tailwind CSS", img: "/tailwind.svg" },
   { skill: "Flutter", img: "/flutter.svg" },
+  { skill: "Typescript", img: "/typescript.svg" },
+  { skill: "React", img: "/react.svg" },
+  { skill: "NPM", img: "/npm.svg" },
+  { skill: "Wordpress", img: "/wordpress.svg" },
   { skill: "Git", img: "/git.svg" },
   { skill: "Onshape (CAD)", img: "/onshape.png" },
   { skill: "Fusion 360 (CAM)", img: "/fusion.png" },
@@ -28,13 +33,13 @@ const AboutSection = () => {
           <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded" />
         </h1>
         <div className="flex flex-col space-y-5 items-center justify-center md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-20 md:items-start">
-          <div className="text-lg sm:text-lg md:text-xl lg:text-xl whitespace-normal break-words text-center md:text-left md:w-1/2 max-w-full p-4">
+          <div className="border-l-4 text-lg sm:text-lg md:text-xl lg:text-xl whitespace-normal break-words text-center md:text-left md:w-1/2 max-w-full p-4">
             <p>
               Hi! I&#39;m Aleksander, a 16 year old junior enrolled in the{" "}
               <span className="font-bold text-amber-400">
                 Center for Information Technology
               </span>{" "}
-              at Deep Run High School in Glen Allen, VA I am generally curious
+              at Deep Run High School in Glen Allen, VA. I am generally curious
               and have many interests, but I am the most passionate about{" "}
               <span className="font-bold text-amber-400">technology</span>,{" "}
               <span className="font-bold text-amber-400">music</span>, and{" "}
@@ -67,7 +72,7 @@ const AboutSection = () => {
               <span className="font-bold text-amber-400">
                 all-state solo performing musician
               </span>
-              . From a young age, I have played jazz trombone in an acclaimed{" "}
+              . I have played jazz trombone in an acclaimed{" "}
               <span className="font-bold text-amber-400">
                 pre-college program
               </span>{" "}
@@ -96,7 +101,7 @@ const AboutSection = () => {
             {skills.map((item, idx) => (
               <div
                 key={idx}
-                className="hover:-translate-y-1 w-60 h-60 flex flex-col items-center justify-center bg-gray-200 p-4 rounded-lg shadow-lg border-4 border-amber-500 hover:bg-gray-300"
+                className="hover:scale-105 w-60 h-60 flex flex-col items-center justify-center bg-gray-200 p-4 rounded-lg shadow-lg border-4 border-amber-500 hover:bg-gray-300"
               >
                 <div className="w-32 h-32 relative mb-2">
                   <Image

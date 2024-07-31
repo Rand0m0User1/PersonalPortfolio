@@ -30,10 +30,10 @@ const projects = [
     github: "https://github.com/Rand0m0User1/PersonalPortfolio",
   },
   {
-    name: "Hockey Robot",
+    name: "Slapshot",
     description:
-      "The robot is designed for a casual re-run of the F4 CADathon competition. It features an intake that passively centers the pucks, an indexer, and a high-power, variable-angle shooter.",
-    glbPath: "puckrobot1.glb",
+      "Robot designed for a casual re-run of the F4 CADathon competition. It features an intake that passively centers the pucks, an indexer, and a high-power, variable-angle shooter.",
+    glbPath: "puckrobot.glb",
     link: "https://cad.onshape.com/documents/aea32739f3009eb4a0fed1a5/w/cb6f4f03cdabbd21cc2bba95/e/9fd5c7e17a5c8e016f5b7045",
   },
   {
@@ -49,6 +49,13 @@ const projects = [
       "Double-jointed arm with a variable wrist, tailored for the 2023 First Robotics Competition game, Charged Up. It's versatile, though it does present a bit of a challenge for programmers. 😉",
     glbPath: "/djarm.glb",
     link: "https://cad.onshape.com/documents/8253e250247f832b06e3a35f/w/221930e2d4075dcf935fcfe5/e/7d2bf5cdca04897dcaade0e5?renderMode=0&uiState=66a9713817ca25772f74f1e4",
+  },
+  {
+    name: "Blockade",
+    description:
+      "Robot designed for the 2018 FIRST Robotics Competition game, Power Up. It effectively picks up power cubes and deposits them into a high 'balance beam' goal using an elevator system. Additionally, it features a buddy climb system that allows it to lift another robot off the ground during the endgame.",
+    glbPath: "cubinator.glb",
+    link: "https://cad.onshape.com/documents/aea32739f3009eb4a0fed1a5/w/cb6f4f03cdabbd21cc2bba95/e/9fd5c7e17a5c8e016f5b7045",
   },
   {
     name: "Slapdown Intake",
