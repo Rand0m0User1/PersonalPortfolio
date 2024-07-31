@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-row items-center justify-center space-x-2 mb-1">
           <a
-            href="https://www.linkedin.com/in/aleksander-kurgan/"
+            href="https://github.com/Rand0m0User1"
             rel="noreferrer"
             target="_blank"
           >
@@ -43,7 +43,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://github.com/Rand0m0User1"
+            href="https://www.linkedin.com/in/aleksander-kurgan/"
             rel="noreferrer"
             target="_blank"
           >
