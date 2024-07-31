@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "next-themes";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import ParticlesComponent from "../components/particles";
 import MyHead from "./head";
 
 export default function RootLayout({
@@ -13,10 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <MyHead />
       <body>
+        <MyHead />
         <ThemeProvider enableSystem={true} attribute="class">
           <Navbar />
+          <ParticlesComponent id="particles" />
           {children}
           <Analytics />
           <Footer />

@@ -2,6 +2,7 @@ import HomeSection from "@/components/HomeSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import EducationSection from "@/components/EducationSection";
+import ParticlesComponent from "../components/particles";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
