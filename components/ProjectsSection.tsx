@@ -123,7 +123,7 @@ const ProjectsSection: React.FC = () => {
         Projects
         <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded"></hr>
       </h1>
-      <div className="flex flex-col space-y-28">
+      <div className="flex flex-col space-y-40">
         {projects.map((project, idx) => (
           <div key={idx} className="flex flex-col items-start">
             {project.glbPath ? (
