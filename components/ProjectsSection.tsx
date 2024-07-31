@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, Suspense } from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
@@ -76,12 +76,6 @@ const Model: React.FC<ModelProps> = ({ path }) => {
 };
 
 const ProjectsSection: React.FC = () => {
-  const [loadedModels, setLoadedModels] = useState<Record<number, boolean>>({});
-
-  const handleLoadModel = (index: number) => {
-    setLoadedModels((prev) => ({ ...prev, [index]: true }));
-  };
-
   return (
     <section id="projects">
       <h1 className="text-center font-bold text-4xl py-8">
@@ -92,29 +86,18 @@ const ProjectsSection: React.FC = () => {
         {projects.map((project, idx) => (
           <div key={idx} className="flex flex-col items-start">
             {project.glbPath ? (
-              <div className="w-full flex flex-col items-center mt-5">
-                {!loadedModels[idx] ? (
-                  <button
-                    onClick={() => handleLoadModel(idx)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-                  >
-                    Load Model
-                  </button>
-                ) : (
-                  <div className="w-full flex justify-center bg-white rounded-lg mt-5 hover:cursor-all-scroll">
-                    <Canvas
-                      style={{ width: "80%", height: "500px" }}
-                      camera={{ position: [8, 8, -5], fov: 50 }}
-                    >
-                      <ambientLight />
-                      <OrbitControls enableZoom={true} />
-                      <Suspense fallback={<div>Loading model...</div>}>
-                        <Model path={project.glbPath} />
-                      </Suspense>
-                      <Environment preset="sunset" />
-                    </Canvas>
-                  </div>
-                )}
+              <div className="w-full flex justify-center bg-white rounded-lg mt-5 hover:cursor-all-scroll">
+                <Canvas
+                  style={{ width: "80%", height: "500px" }}
+                  camera={{ position: [8, 8, -5], fov: 50 }}
+                >
+                  <ambientLight />
+                  <OrbitControls enableZoom={true} />
+                  <Suspense fallback={null}>
+                    <Model path={project.glbPath} />
+                  </Suspense>
+                  <Environment preset="sunset" />
+                </Canvas>
               </div>
             ) : (
               <div className="mt-5">
