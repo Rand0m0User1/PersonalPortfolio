@@ -77,7 +77,10 @@ const AboutSection = () => {
                 pre-college program
               </span>{" "}
               and classical euphonium, taking lessons from{" "}
-              <span className="font-bold text-amber-400">Dr. Ross Walter</span>.
+              <span className="font-bold text-amber-400">
+                Professor Ross Walter
+              </span>
+              .
             </p>
           </div>
           <div className="md:w-1/2 flex justify-center">
