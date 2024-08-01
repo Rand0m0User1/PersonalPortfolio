@@ -25,7 +25,7 @@ const projects = [
   },
   {
     name: "This Website",
-    description: "All about me.",
+    description: "All about me 👀",
     image: "/portfolio.png",
     github: "https://github.com/Rand0m0User1/PersonalPortfolio",
   },
@@ -137,7 +137,7 @@ const ProjectsSection: React.FC = () => {
                     width={1000}
                     height={1000}
                     unoptimized
-                    className="border-4 border-amber-400 rounded-xl shadow-xl hover:opacity-70"
+                    className="border-4 border-amber-400 rounded-xl shadow-xl hover:scale-105"
                   />
                 </Link>
               </div>
