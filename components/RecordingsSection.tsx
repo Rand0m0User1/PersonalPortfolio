@@ -5,14 +5,38 @@ const projects = [
   {
     name: "James Curnow Rhapsody for Euphonium",
     ytlink: "https://www.youtube.com/embed/x7sH6wLfTiI?si=P2_JxMJDvId3Oqze",
-    description:
-      "A beautiful rhapsody showcasing the range and expressive capabilities of the euphonium.",
+    description: (
+      <>
+        A beautiful rhapsody showcasing the range and expressive capabilities of
+        the euphonium. Pianist:{" "}
+        <a
+          href="https://magdalenaadamek.wordpress.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline"
+        >
+          Magdalena Adamek
+        </a>
+      </>
+    ),
   },
   {
     name: "Ernst Sachse Concertino",
     ytlink: "https://www.youtube.com/embed/hcKxIkghNv8?si=XRI5GUxh5ZRH5du2",
-    description:
-      "A performance of Ernst Sachse's Concertino for Bass Trombone, adapted for euphonium.",
+    description: (
+      <>
+        A performance of Ernst Sachse&#39;s Concertino for Bass Trombone,
+        adapted for euphonium. Pianist:{" "}
+        <a
+          href="https://magdalenaadamek.wordpress.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline"
+        >
+          Magdalena Adamek
+        </a>
+      </>
+    ),
   },
   {
     name: "GRYJB Alfie's Theme Improv Solo",
