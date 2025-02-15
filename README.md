@@ -6,15 +6,15 @@ This repository hosts the source code for my personal portfolio, designed to sho
 
 The portfolio includes:
 
-- **3D Model Rendering**: Interactive CAD models using Three.js.
-- **Particle Background**: Aesthetic visuals with `@tsparticles/react`.
-- **Responsive Design**: Optimized for all devices with Tailwind CSS.
+- **3D Model Rendering**: Interactive CAD models using Three.js
+- **Particle Background**: Visuals with `@tsparticles/react`.
+- **Responsive Design**: Optimized for all devices with Tailwind CSS
 
 ## Features
 
-- **Dynamic Routing**: Powered by Next.js for navigation.
-- **Modular Components**: React-based architecture for easy maintenance.
-- **Custom Animations**: Enhanced user experience with CSS and Tailwind utilities.
+- **Dynamic Routing**: Powered by Next.js
+- **Modular Components**: React-based architecture
+- **Custom Animations**: CSS and Tailwind utilities
 
 ## Installation
 
