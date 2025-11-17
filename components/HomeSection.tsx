@@ -12,11 +12,11 @@ const Home = () => {
     <section id="home">
       <div className="flex flex-col-reverse text-center items-center justify-center my-12 py-16 sm:py-30 md:flex-row md:space-x-8 md:text-left md:py-60">
         <div className="md:mt-2 md:w-3/5 md:ml-20">
-          <h1 className="font-bold text-6xl mt-6 md:text-10xl md:mt-0 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          <h1 className="font-bold text-6xl mt-6 md:text-10xl md:mt-0 text-gray-900 dark:text-white">
             Hi, I&#39;m Aleks!
           </h1>
           <div className="text-4xl mt-6 mb-8 md:text-4xl">
-            <span className="font-medium">a </span>
+            <span className="font-medium text-gray-900 dark:text-white">a </span>
             <span
               className="font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent"
               style={{ display: "inline-block" }}
