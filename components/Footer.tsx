@@ -14,46 +14,40 @@ const Footer = () => {
 
   return (
     <footer className="mx-auto max-w-3xl px-4 sm:px-6 md:max-w-5xl">
-      <hr className="w-full h-0.5 mx-auto mt-8 bg-neutral-200 border-0" />
+      <div className="w-full h-px mx-auto mt-12 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
       <div
-        className={`mx-auto p-4 flex flex-col text-center ${
+        className={`mx-auto p-6 flex flex-col text-center ${
           resolvedTheme === "dark" ? "text-neutral-100" : "text-neutral-900"
-        } md:flex-row md:justify-between`}
+        } md:flex-row md:justify-between items-center`}
       >
         <div
-          className={`flex flex-row items-center justify-center space-x-1 ${
+          className={`flex flex-row items-center justify-center space-x-2 mb-4 md:mb-0 ${
             resolvedTheme === "dark" ? "text-neutral-100" : "text-neutral-950"
           }`}
         >
-          Built with by ❤️ Aleksander Kurgan
+          Built with <span className="text-red-500 animate-pulse text-xl">❤️</span> by <span className="font-semibold text-amber-500">Aleksander Kurgan</span>
         </div>
-        <div className="flex flex-row items-center justify-center space-x-2 mb-1">
+        <div className="flex flex-row items-center justify-center space-x-3">
           <a
             href="https://github.com/Rand0m0User1"
             rel="noreferrer"
             target="_blank"
+            className="p-2.5 rounded-xl bg-gray-100 dark:bg-stone-800 hover:bg-amber-400 dark:hover:bg-amber-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-md hover:shadow-xl"
           >
             <AiOutlineGithub
-              className={`hover:-translate-y-1 transition-transform cursor-pointer ${
-                resolvedTheme === "dark"
-                  ? "text-neutral-100"
-                  : "text-neutral-950"
-              }`}
-              size={30}
+              className="cursor-pointer"
+              size={26}
             />
           </a>
           <a
             href="https://www.linkedin.com/in/aleksander-kurgan/"
             rel="noreferrer"
             target="_blank"
+            className="p-2.5 rounded-xl bg-gray-100 dark:bg-stone-800 hover:bg-amber-400 dark:hover:bg-amber-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-md hover:shadow-xl"
           >
             <AiOutlineLinkedin
-              className={`hover:-translate-y-1 transition-transform cursor-pointer ${
-                resolvedTheme === "dark"
-                  ? "text-neutral-100"
-                  : "text-neutral-950"
-              }`}
-              size={30}
+              className="cursor-pointer"
+              size={26}
             />
           </a>
         </div>

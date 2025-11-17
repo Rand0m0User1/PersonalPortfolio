@@ -33,15 +33,15 @@ const Navbar = () => {
 
   return (
     <header
-      className={`w-full mx-auto px-4 fixed top-0 z-50 sm:px-20 ${
+      className={`w-full mx-auto px-6 fixed top-0 z-50 sm:px-20 backdrop-blur-xl transition-all duration-300 ${
         resolvedTheme === "dark"
-          ? "bg-stone-900 dark:border-b dark:border-stone-600"
-          : "bg-white shadow"
+          ? "bg-stone-900/90 border-b border-stone-700/30 shadow-lg shadow-black/20"
+          : "bg-white/90 border-b border-gray-200/30 shadow-lg shadow-gray-200/50"
       }`}
     >
-      <div className="justify-between md:items-center md:flex">
+      <div className="justify-between md:items-center md:flex max-w-7xl mx-auto">
         <div>
-          <div className="flex justify-between items-center py-3">
+          <div className="flex justify-between items-center py-4">
             <div className="md:py-5 md:block">
               <Link
                 to="home"
@@ -51,7 +51,7 @@ const Navbar = () => {
                 duration={500}
               >
                 <Image
-                  className="cursor-pointer"
+                  className="cursor-pointer transition-all duration-300 hover:scale-110 hover:rotate-3"
                   src="/logo.png"
                   alt="logo"
                   width={90}
@@ -60,8 +60,12 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="md:hidden">
-              <button onClick={() => setNavbar(!navbar)} className="p-2">
-                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
+              <button 
+                onClick={() => setNavbar(!navbar)} 
+                className="p-2.5 rounded-xl hover:bg-amber-400/20 transition-all duration-200"
+                aria-label="Toggle menu"
+              >
+                {navbar ? <IoMdClose size={28} /> : <IoMdMenu size={28} />}
               </button>
             </div>
           </div>
@@ -73,7 +77,7 @@ const Navbar = () => {
               : "max-h-0 opacity-0 -translate-y-full"
           } overflow-hidden md:flex md:max-h-full md:opacity-100 md:translate-y-0`}
         >
-          <div className="flex flex-col items-center space-y-7 pb-4 md:pb-0 md:flex-row md:space-x-6 md:space-y-0">
+          <div className="flex flex-col items-center space-y-8 pb-6 md:pb-0 md:flex-row md:space-x-10 md:space-y-0">
             {NAV_ITEMS.map((item, idx) =>
               item.label === "Résumé" ? (
                 <a
@@ -81,23 +85,24 @@ const Navbar = () => {
                   href="/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block lg:inline-block cursor-pointer ${
+                  className={`block lg:inline-block cursor-pointer font-semibold text-sm tracking-wide uppercase transition-all duration-200 relative group ${
                     resolvedTheme === "dark"
-                      ? "text-neutral-100 hover:text-neutral-500"
-                      : "text-neutral-900 hover:text-neutral-500"
+                      ? "text-neutral-100 hover:text-amber-400"
+                      : "text-neutral-900 hover:text-amber-500"
                   }`}
                   onClick={() => setNavbar(!navbar)}
                 >
                   {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ) : (
                 <Link
                   key={idx}
                   to={item.page}
-                  className={`block lg:inline-block cursor-pointer ${
+                  className={`block lg:inline-block cursor-pointer font-semibold text-sm tracking-wide uppercase transition-all duration-200 relative group ${
                     resolvedTheme === "dark"
-                      ? "text-neutral-100 hover:text-neutral-500"
-                      : "text-neutral-900 hover:text-neutral-500"
+                      ? "text-neutral-100 hover:text-amber-400"
+                      : "text-neutral-900 hover:text-amber-500"
                   }`}
                   activeClass="active"
                   spy={true}
@@ -107,22 +112,25 @@ const Navbar = () => {
                   onClick={() => setNavbar(!navbar)}
                 >
                   {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               )
             )}
             {resolvedTheme === "dark" ? (
               <button
                 onClick={() => setTheme("light")}
-                className="bg-slate-100 p-2 rounded-xl"
+                className="bg-gradient-to-br from-amber-300 to-amber-500 p-2.5 rounded-xl hover:from-amber-400 hover:to-amber-600 transition-all duration-300 hover:scale-110 hover:rotate-12 shadow-md"
+                aria-label="Switch to light mode"
               >
-                <RiSunLine size={25} color="black" />
+                <RiSunLine size={22} color="black" />
               </button>
             ) : (
               <button
                 onClick={() => setTheme("dark")}
-                className="bg-slate-100 p-2 rounded-xl"
+                className="bg-gradient-to-br from-slate-700 to-slate-900 p-2.5 rounded-xl hover:from-slate-800 hover:to-black transition-all duration-300 hover:scale-110 hover:rotate-12 shadow-md"
+                aria-label="Switch to dark mode"
               >
-                <RiMoonFill size={25} />
+                <RiMoonFill size={22} color="white" />
               </button>
             )}
           </div>

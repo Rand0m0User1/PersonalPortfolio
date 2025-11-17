@@ -3,6 +3,21 @@ import { FaMusic } from "react-icons/fa";
 
 const projects = [
   {
+    name: "Sonatine by Hidenori Arai & No. 42 Melodious Etudes",
+    ytlink: "https://www.youtube.com/embed/mIj3i5NNuLk",
+    description: "Sonatine by Hidenori Arai and Melodious Etudes for Trombone Book 1 No. 42 by Marco Bordogni & Johannes Rochut.",
+  },
+  {
+    name: '"Vocalise No. 10 - Andante Pastorale" by Marco Bordogni',
+    ytlink: "https://www.youtube.com/embed/71nKpRCXJFE",
+    description: "A lyrical vocalise showcasing melodic expression and phrasing on the euphonium.",
+  },
+  {
+    name: "Romance by Carl Von Maria Weber",
+    ytlink: "https://www.youtube.com/embed/2yEQQhbJ0Hc",
+    description: "A romantic piece highlighting the expressive capabilities of the euphonium.",
+  },
+  {
     name: "James Curnow Rhapsody for Euphonium",
     ytlink: "https://www.youtube.com/embed/x7sH6wLfTiI?si=P2_JxMJDvId3Oqze",
     description: (
@@ -39,18 +54,21 @@ const projects = [
     ),
   },
   {
+    name: "Etude Based on Sweet Georgia Brown",
+    ytlink: "https://www.youtube.com/embed/JxPWLWcxc5A",
+    description: "A jazz etude exploring improvisation over the chord changes of the classic tune Sweet Georgia Brown.",
+  },
+  {
+    name: "Solo for Hey Pete - All Virginia Jazz 24",
+    ytlink: "https://www.youtube.com/embed/Q7GdCgQ16aM?si=1OEkY-D2Nzmhtb6T&amp;start=64",
+    description: "Solo performance on Hey Pete at All Virginia Jazz 2024 with Vincent Gardner.",
+  },
+  {
     name: "GRYJB Alfie's Theme Improv Solo",
     ytlink:
       "https://www.youtube.com/embed/c4aSNEVmUrE?si=qNpM0v_-vE7FidN_&amp;start=177",
     description:
       "Improvisational solo at GRYJB's performance of Alfie's Theme at the Trinity Episcopal Jazz Festival",
-  },
-  {
-    name: "GRYJB Urban Strut Improv Solo",
-    ytlink:
-      "https://www.youtube.com/embed/knRk8mRZ3ZY?si=RUYQdWCAUEHsFRsq&amp;start=86",
-    description:
-      "Improvisational solo at GRYJB's performance of Urban Strut at the annual Dominion Energy Center concert",
   },
   {
     name: "Recording of Jack Teagarden's Solo on 'I Guess I'll Go Back Home This Summer'",
@@ -62,6 +80,13 @@ const projects = [
         <span className="font-bold text-amber-400">More to come soon!</span>
       </>
     ),
+  },
+  {
+    name: "GRYJB Urban Strut Improv Solo",
+    ytlink:
+      "https://www.youtube.com/embed/knRk8mRZ3ZY?si=RUYQdWCAUEHsFRsq&amp;start=86",
+    description:
+      "Improvisational solo at GRYJB's performance of Urban Strut at the annual Dominion Energy Center concert",
   },
 ];
 

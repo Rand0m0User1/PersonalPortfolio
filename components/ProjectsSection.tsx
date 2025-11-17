@@ -9,12 +9,20 @@ import { useInView } from "react-intersection-observer";
 
 const projects = [
   {
-    name: "WeatherGuru",
+    name: "LSU ADHD VR Research",
     description:
-      "WeatherGuru is a sleek and user-friendly weather application developed using pure HTML, CSS, and JavaScript. Powered by Node.js, it provides real-time weather updates for any location, delivering the information in a visually appealing format.",
-    image: "/weatherguru.png",
-    github: "https://github.com/Rand0m0User1/WeatherGuru",
-    link: "https://weather-guru-lime.vercel.app/",
+      "Performing research with scholars from LSU, Rutgers, and University of Zurich on a VR-based ADHD intervention study funded by the National Institute of Mental Health (NIMH). Developed robust, scalable data pipelines to parse, analyze, and report large user interaction data. Refactored and expanded codebase using feature-driven design patterns. Facilitated adding and completing novel research objectives.",
+    image: "/adhd-vr.webp",
+    github: "https://github.com/drbiga/lsuadhd-frontend",
+    link: "https://www.lsu.edu/blog/2024/10/01vr_adhdresearch_rh.php",
+  },
+  {
+    name: "Woodland Cemetery Restoration",
+    description:
+      "Led development team to enhance mobile functionality and map hundreds of graves at the historic Richmond, VA, Woodland Cemetery. Each grave is individually mapped and displayed on an interactive interface, featuring burial records alongside additional features such as 3D grave scans and links to FindAGrave.com records.",
+    image: "/woodland-cemetery.jpg",
+    github: "https://github.com/Rand0m0User1/WoodlandCemetery2025",
+    link: "https://www.woodlandrestorationfoundation.org/map",
   },
   {
     name: "HCPS Transportation",
@@ -22,6 +30,14 @@ const projects = [
       "Contributor to the development of the set of applications that connected with the Edulog transportation logistics platform, enabling HCPS students to scan their smartphones to verify boarding and disembarkation from the school bus.",
     image: "/bustransportation.jpeg",
     link: "https://docs.google.com/presentation/d/1ZvLDIaKy_XhhAAJHN5zTUyqJCVizXZf3AlVmyxWWkZk/edit?usp=sharing",
+  },
+  {
+    name: "WeatherGuru",
+    description:
+      "WeatherGuru is a sleek and user-friendly weather application developed using pure HTML, CSS, and JavaScript. Powered by Node.js, it provides real-time weather updates for any location, delivering the information in a visually appealing format.",
+    image: "/weatherguru.png",
+    github: "https://github.com/Rand0m0User1/WeatherGuru",
+    link: "https://weather-guru-lime.vercel.app/",
   },
   {
     name: "This Website",
@@ -119,47 +135,54 @@ const LazyModel: React.FC<{ path: string }> = ({ path }) => {
 const ProjectsSection: React.FC = () => {
   return (
     <section id="projects">
-      <h1 className="text-center font-bold text-4xl py-8">
+      <h1 className="text-center font-bold text-5xl py-8">
         Projects
-        <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded"></hr>
+        <hr className="w-24 h-1.5 mx-auto my-6 bg-gradient-to-r from-amber-400 to-amber-600 border-0 rounded-full"></hr>
       </h1>
-      <div className="flex flex-col space-y-40">
+      <div className="flex flex-col space-y-48">
         {projects.map((project, idx) => (
           <div key={idx} className="flex flex-col items-start">
             {project.glbPath ? (
               <LazyModel path={project.glbPath} />
             ) : (
-              <div className="mt-5">
+              <div className="mt-5 group">
                 <Link href={project.link || "#"} target="_blank">
-                  <Image
-                    src={project.image || ""}
-                    alt={project.name}
-                    width={1000}
-                    height={1000}
-                    unoptimized
-                    className="border-4 border-amber-400 rounded-xl shadow-xl hover:scale-105"
-                  />
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10"></div>
+                    <Image
+                      src={project.image || ""}
+                      alt={project.name}
+                      width={1000}
+                      height={1000}
+                      unoptimized
+                      className="border-4 border-amber-400/50 rounded-2xl shadow-2xl hover:shadow-amber-400/25 transition-all duration-500 group-hover:scale-105"
+                    />
+                  </div>
                 </Link>
               </div>
             )}
-            <div className="mt-5">
-              <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
-              <p className="text-xl leading-7 mb-4">{project.description}</p>
+            <div className="mt-8">
+              <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">{project.name}</h1>
+              <p className="text-xl leading-8 mb-6 text-gray-700 dark:text-gray-300">{project.description}</p>
               <div className="flex flex-row align-bottom space-x-4">
                 {project.github && (
                   <Link href={project.github} target="_blank">
-                    <BsGithub
-                      size={30}
-                      className="hover:-translate-y-1 transition-transform cursor-pointer"
-                    />
+                    <div className="p-3 rounded-xl bg-gray-100 dark:bg-stone-800 hover:bg-amber-400 dark:hover:bg-amber-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-md hover:shadow-xl">
+                      <BsGithub
+                        size={26}
+                        className="cursor-pointer"
+                      />
+                    </div>
                   </Link>
                 )}
                 {project.link && (
                   <Link href={project.link} target="_blank">
-                    <BsArrowUpRightSquare
-                      size={30}
-                      className="hover:-translate-y-1 transition-transform cursor-pointer"
-                    />
+                    <div className="p-3 rounded-xl bg-gray-100 dark:bg-stone-800 hover:bg-amber-400 dark:hover:bg-amber-500 transition-all duration-300 hover:scale-110 hover:-translate-y-1 shadow-md hover:shadow-xl">
+                      <BsArrowUpRightSquare
+                        size={26}
+                        className="cursor-pointer"
+                      />
+                    </div>
                   </Link>
                 )}
               </div>

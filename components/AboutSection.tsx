@@ -28,12 +28,12 @@ const AboutSection = () => {
   return (
     <section id="about">
       <div className="my-12 pb-12 md:pt-16 md:pb-48">
-        <h1 className="text-center font-bold text-4xl py-8">
+        <h1 className="text-center font-bold text-5xl py-8">
           About Me
-          <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded" />
+          <hr className="w-24 h-1.5 mx-auto my-6 bg-gradient-to-r from-amber-400 to-amber-600 border-0 rounded-full" />
         </h1>
-        <div className="flex flex-col space-y-5 items-center justify-center md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-20 md:items-start">
-          <div className="border-l-4 text-lg sm:text-lg md:text-xl lg:text-xl whitespace-normal break-words text-center md:text-left md:w-1/2 max-w-full p-4">
+        <div className="flex flex-col space-y-8 items-center justify-center md:flex-row md:text-left md:p-4 md:space-y-0 md:space-x-24 md:items-start">
+          <div className="border-l-4 border-amber-400 text-lg sm:text-lg md:text-xl lg:text-xl whitespace-normal break-words text-center md:text-left md:w-1/2 max-w-full p-6 bg-gradient-to-br from-transparent to-amber-400/5 rounded-r-xl">
             <p>
               Hi! I&#39;m Aleksander, a 16 year old junior enrolled in the{" "}
               <span className="font-bold text-amber-400">
@@ -96,17 +96,18 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        <h1 className="text-center font-bold text-2xl mb-6 mt-20">
+        <h1 className="text-center font-bold text-3xl mb-12 mt-24">
           My Current Skillset
         </h1>
         <div className="flex justify-center">
-          <div className="flex flex-wrap justify-center gap-6 lg:gap-10">
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
             {skills.map((item, idx) => (
               <div
                 key={idx}
-                className="hover:scale-105 w-60 h-60 flex flex-col items-center justify-center bg-gray-200 p-4 rounded-lg shadow-lg border-4 border-amber-500 hover:bg-gray-300"
+                className="group relative w-56 h-56 flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-stone-800 dark:to-stone-900 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 border border-gray-200 dark:border-stone-700 overflow-hidden"
               >
-                <div className="w-32 h-32 relative mb-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-400/0 to-amber-500/0 group-hover:from-amber-400/10 group-hover:to-amber-500/20 transition-all duration-300"></div>
+                <div className="w-28 h-28 relative mb-3 z-10 transition-transform duration-300 group-hover:scale-110">
                   <Image
                     src={item.img}
                     alt={item.skill}
@@ -114,7 +115,7 @@ const AboutSection = () => {
                     objectFit="contain"
                   />
                 </div>
-                <p className="text-black font-semibold text-center">
+                <p className="text-black dark:text-white font-bold text-center text-sm z-10">
                   {item.skill}
                 </p>
               </div>
