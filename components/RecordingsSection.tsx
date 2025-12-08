@@ -3,9 +3,17 @@ import { FaMusic } from "react-icons/fa";
 
 const projects = [
   {
+    name: "\"Tenerife Dance\" by Gregory Fritze",
+    ytlink: "https://www.youtube.com/embed/KxUOWKt_HFY",
+    description:
+      "A vibrant piece by Gregory Fritze based on the colors and dance rhythms of Tenerife. A musical 'postcard' that combines lyrical melodies with energetic dance motifs.",
+    isNew: true,
+  },
+  {
     name: "Sonatine by Hidenori Arai & No. 42 Melodious Etudes",
     ytlink: "https://www.youtube.com/embed/mIj3i5NNuLk",
-    description: "Sonatine by Hidenori Arai and Melodious Etudes for Trombone Book 1 No. 42 by Marco Bordogni & Johannes Rochut.",
+    description:
+      "Sonatine by Hidenori Arai and Melodious Etudes for Trombone Book 1 No. 42 by Marco Bordogni & Johannes Rochut.",
   },
   {
     name: '"Vocalise No. 10 - Andante Pastorale" by Marco Bordogni',
@@ -56,17 +64,17 @@ const projects = [
   {
     name: "Etude Based on Sweet Georgia Brown",
     ytlink: "https://www.youtube.com/embed/JxPWLWcxc5A",
-    description: "A jazz etude exploring improvisation over the chord changes of the classic tune Sweet Georgia Brown.",
+    description:
+      "A jazz etude exploring improvisation over the chord changes of the classic tune Sweet Georgia Brown.",
   },
   {
     name: "Solo for Hey Pete - All Virginia Jazz 24",
-    ytlink: "https://www.youtube.com/embed/Q7GdCgQ16aM?si=1OEkY-D2Nzmhtb6T&amp;start=64",
+    ytlink: "https://www.youtube.com/embed/Q7GdCgQ16aM",
     description: "Solo performance on Hey Pete at All Virginia Jazz 2024 with Vincent Gardner.",
   },
   {
     name: "GRYJB Alfie's Theme Improv Solo",
-    ytlink:
-      "https://www.youtube.com/embed/c4aSNEVmUrE?si=qNpM0v_-vE7FidN_&amp;start=177",
+    ytlink: "https://www.youtube.com/embed/c4aSNEVmUrE?start=177",
     description:
       "Improvisational solo at GRYJB's performance of Alfie's Theme at the Trinity Episcopal Jazz Festival",
   },
@@ -83,8 +91,7 @@ const projects = [
   },
   {
     name: "GRYJB Urban Strut Improv Solo",
-    ytlink:
-      "https://www.youtube.com/embed/knRk8mRZ3ZY?si=RUYQdWCAUEHsFRsq&amp;start=86",
+    ytlink: "https://www.youtube.com/embed/knRk8mRZ3ZY?start=86",
     description:
       "Improvisational solo at GRYJB's performance of Urban Strut at the annual Dominion Energy Center concert",
   },
@@ -109,6 +116,11 @@ const RecordingsSection = () => {
                   <h1 className="text-center md:text-left text-2xl font-bold mb-4 flex items-center space-x-2">
                     <FaMusic className="text-4xl text-amber-400" />
                     <span>{project.name}</span>
+                    {project.isNew && (
+                      <span className="ml-3 inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-600 text-white">
+                        NEW
+                      </span>
+                    )}
                   </h1>
                   <p className="text-center md:text-left text-xl leading-7 mb-4">
                     {project.description}
