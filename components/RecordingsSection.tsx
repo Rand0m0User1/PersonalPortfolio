@@ -1,147 +1,105 @@
-import React from "react";
-import { FaMusic } from "react-icons/fa";
-
-const projects = [
-  {
-    name: "\"Tenerife Dance\" by Gregory Fritze",
-    ytlink: "https://www.youtube.com/embed/KxUOWKt_HFY",
-    description:
-      "A vibrant piece by Gregory Fritze based on the colors and dance rhythms of Tenerife. A musical 'postcard' that combines lyrical melodies with energetic dance motifs.",
-    isNew: true,
-  },
-  {
-    name: "Sonatine by Hidenori Arai & No. 42 Melodious Etudes",
-    ytlink: "https://www.youtube.com/embed/mIj3i5NNuLk",
-    description:
-      "Sonatine by Hidenori Arai and Melodious Etudes for Trombone Book 1 No. 42 by Marco Bordogni & Johannes Rochut.",
-  },
-  {
-    name: '"Vocalise No. 10 - Andante Pastorale" by Marco Bordogni',
-    ytlink: "https://www.youtube.com/embed/71nKpRCXJFE",
-    description: "A lyrical vocalise showcasing melodic expression and phrasing on the euphonium.",
-  },
-  {
-    name: "Romance by Carl Von Maria Weber",
-    ytlink: "https://www.youtube.com/embed/2yEQQhbJ0Hc",
-    description: "A romantic piece highlighting the expressive capabilities of the euphonium.",
-  },
-  {
-    name: "James Curnow Rhapsody for Euphonium",
-    ytlink: "https://www.youtube.com/embed/x7sH6wLfTiI?si=P2_JxMJDvId3Oqze",
-    description: (
-      <>
-        A beautiful rhapsody showcasing the range and expressive capabilities of
-        the euphonium. Pianist:{" "}
-        <a
-          href="https://magdalenaadamek.wordpress.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 underline"
-        >
-          Magdalena Adamek
-        </a>
-      </>
-    ),
-  },
-  {
-    name: "Ernst Sachse Concertino",
-    ytlink: "https://www.youtube.com/embed/hcKxIkghNv8?si=XRI5GUxh5ZRH5du2",
-    description: (
-      <>
-        A performance of Ernst Sachse&#39;s Concertino for Bass Trombone,
-        adapted for euphonium. Pianist:{" "}
-        <a
-          href="https://magdalenaadamek.wordpress.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 underline"
-        >
-          Magdalena Adamek
-        </a>
-      </>
-    ),
-  },
-  {
-    name: "Etude Based on Sweet Georgia Brown",
-    ytlink: "https://www.youtube.com/embed/JxPWLWcxc5A",
-    description:
-      "A jazz etude exploring improvisation over the chord changes of the classic tune Sweet Georgia Brown.",
-  },
-  {
-    name: "Solo for Hey Pete - All Virginia Jazz 24",
-    ytlink: "https://www.youtube.com/embed/Q7GdCgQ16aM",
-    description: "Solo performance on Hey Pete at All Virginia Jazz 2024 with Vincent Gardner.",
-  },
-  {
-    name: "GRYJB Alfie's Theme Improv Solo",
-    ytlink: "https://www.youtube.com/embed/c4aSNEVmUrE?start=177",
-    description:
-      "Improvisational solo at GRYJB's performance of Alfie's Theme at the Trinity Episcopal Jazz Festival",
-  },
-  {
-    name: "Recording of Jack Teagarden's Solo on 'I Guess I'll Go Back Home This Summer'",
-    ytlink: "https://www.youtube.com/embed/hW9XYYaUvT0?si=Bq2IoMA44RqufsYS",
-    description: (
-      <>
-        Transcription of a solo by one of the greatest Jazz Trombonists to ever
-        live.{" "}
-        <span className="font-bold text-amber-400">More to come soon!</span>
-      </>
-    ),
-  },
-  {
-    name: "GRYJB Urban Strut Improv Solo",
-    ytlink: "https://www.youtube.com/embed/knRk8mRZ3ZY?start=86",
-    description:
-      "Improvisational solo at GRYJB's performance of Urban Strut at the annual Dominion Energy Center concert",
-  },
-];
+"use client";
+import React, { useState } from "react";
+import { FaMusic, FaFileAlt } from "react-icons/fa";
+import Section from "./Section";
+import { recordings, RECORDINGS_PAGE_SIZE } from "@/data/recordings";
+import { site } from "@/data/site";
 
 const RecordingsSection = () => {
+  const [shown, setShown] = useState(RECORDINGS_PAGE_SIZE);
+  const visible = recordings.slice(0, shown);
+  const remaining = recordings.length - shown;
+
   return (
-    <section id="recordings">
-      <div className="my-12 pb-12 md:pt-16 md:pb-48">
-        <h1 className="text-center font-bold text-4xl py-8 mb-4">
-          Recordings
-          <hr className="w-6 h-1 mx-auto my-4 bg-amber-400 border-0 rounded" />
-        </h1>
-        <div className="flex flex-col space-y-28">
-          {projects.map((project, idx) => {
-            return (
-              <div
-                key={idx}
-                className="flex flex-col md:flex-row md:space-x-12"
-              >
-                <div className="md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-0">
-                  <h1 className="text-center md:text-left text-2xl font-bold mb-4 flex items-center space-x-2">
-                    <FaMusic className="text-4xl text-amber-400" />
-                    <span>{project.name}</span>
-                    {project.isNew && (
-                      <span className="ml-3 inline-flex items-center text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-600 text-white">
-                        NEW
-                      </span>
-                    )}
-                  </h1>
-                  <p className="text-center md:text-left text-xl leading-7 mb-4">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="md:w-1/2">
-                  <div className="relative" style={{ paddingBottom: "56.25%" }}>
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full"
-                      src={project.ytlink}
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+    <Section
+      id="recordings"
+      title="Recordings & Performances"
+      subtitle="Classical euphonium and jazz trombone:"
+    >
+      <div className="mb-4">
+        <a
+          href={site.performanceResume}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange-600"
+        >
+          <FaFileAlt size={15} />
+          View Performance R&eacute;sum&eacute;
+        </a>
       </div>
-    </section>
+
+      <div className="flex flex-col gap-8">
+        {visible.map((recording) => (
+          <div
+            key={recording.ytlink}
+            className="flex flex-col gap-6 md:flex-row"
+          >
+            <div className="md:w-1/2">
+              <div className="relative aspect-video overflow-hidden rounded-xl bg-slate-100">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src={recording.ytlink}
+                  title={recording.name}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+
+            <div className="md:w-1/2">
+              <div className="flex items-start gap-2">
+                <FaMusic
+                  size={15}
+                  className="mt-1.5 shrink-0 text-orange-500"
+                />
+                <h3 className="font-bold text-slate-800">
+                  {recording.name}
+                  {recording.isNew && (
+                    <span className="ml-2 align-middle rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-semibold uppercase text-white">
+                      New
+                    </span>
+                  )}
+                </h3>
+              </div>
+
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                {recording.description}
+              </p>
+
+              {recording.credit && (
+                <p className="mt-3 text-sm text-slate-500">
+                  {recording.credit.role}:{" "}
+                  {recording.credit.url ? (
+                    <a
+                      href={recording.credit.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-orange-500 underline decoration-orange-300 hover:decoration-orange-500"
+                    >
+                      {recording.credit.name}
+                    </a>
+                  ) : (
+                    <span className="font-medium">{recording.credit.name}</span>
+                  )}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {remaining > 0 && (
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => setShown(shown + RECORDINGS_PAGE_SIZE)}
+            className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 transition-colors hover:border-orange-400 hover:text-orange-500"
+          >
+            Load more ({remaining} left)
+          </button>
+        </div>
+      )}
+    </Section>
   );
 };
 

@@ -1,31 +1,29 @@
 import HomeSection from "@/components/HomeSection";
-import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import EducationSection from "@/components/EducationSection";
+import PublicationsSection from "@/components/PublicationsSection";
 import RecordingsSection from "@/components/RecordingsSection";
-import { Metadata } from "next";
+import SkillsSection from "@/components/SkillsSection";
+import EducationSection from "@/components/EducationSection";
+import ContactSection from "@/components/ContactSection";
+import ScrollRestore from "@/components/ScrollRestore";
 
-export const metadata: Metadata = {
-  title: "Aleksander Kurgan",
-  description:
-    "Portfolio of Aleksander Kurgan, showcasing projects, education, and experience.",
-  keywords:
-    "Aleksander Kurgan, portfolio, projects, education, experience, web development, CAD, Computer Aided Design",
-  openGraph: {
-    title: "Aleksander Kurgan",
-    description:
-      "Portfolio of Aleksander Kurgan, showcasing projects, education, and experience.",
-  },
-};
-
+// Reorder or remove a section by editing this list.
 export default function Home() {
   return (
-    <main className="mx-auto max-w-3xl px-4 sm-px-6 md:max-w-5xl">
+    <>
+      <ScrollRestore />
       <HomeSection />
-      <AboutSection />
+      <ExperienceSection />
       <ProjectsSection />
+      <PublicationsSection />
       <RecordingsSection />
+      <SkillsSection />
       <EducationSection />
-    </main>
+      <ContactSection />
+      <footer className="border-t border-dashed border-slate-300 py-8 text-center text-sm text-slate-500">
+        Built by Aleksander Kurgan
+      </footer>
+    </>
   );
 }
